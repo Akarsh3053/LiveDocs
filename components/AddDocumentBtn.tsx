@@ -2,12 +2,20 @@
 
 import Image from "next/image"
 import { Button } from "./ui/button"
+import { createDocument } from "@/lib/actions/room.actions"
+import { useRouter } from "next/navigation"
 
 const AddDocumentBtn = ({ userId, email }: AddDocumentBtnProps) => {
+    const router = useRouter();
 
     const addDocumentHandler = async () => {
-        // Add document logic here
-        console.log('Add document clicked', userId, email)
+        try {
+            const room = await createDocument({ userId, email })
+
+            if (room) router.push(`/document/${room.id}`);
+        } catch (error) {
+            console.log(error)
+        }
     }
 
 
