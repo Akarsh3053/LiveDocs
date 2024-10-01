@@ -1,4 +1,4 @@
-'use clien'
+'use client'
 
 import { ClientSideSuspense, RoomProvider } from "@liveblocks/react/suspense"
 import Header from "@/components/Header"

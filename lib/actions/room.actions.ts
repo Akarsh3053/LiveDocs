@@ -1,3 +1,5 @@
+"use server"
+
 import { nanoid } from "nanoid"
 import { liveblocks } from "../liveblocks";
 import { revalidatePath } from "next/cache";
