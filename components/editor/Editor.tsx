@@ -11,8 +11,9 @@ import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
 import { LexicalErrorBoundary } from '@lexical/react/LexicalErrorBoundary';
 import React from 'react';
 
-import { liveblocksConfig, useEditorStatus } from '@liveblocks/react-lexical';
+import { liveblocksConfig, LiveblocksPlugin, useEditorStatus } from '@liveblocks/react-lexical';
 import Loader from '../Loader';
+import FloatingToolbar from './plugins/FloatingToolbarPlugin';
 
 // Catch any errors that occur during Lexical updates and log them
 // or throw them as needed. If you don't throw them, Lexical will
@@ -55,14 +56,16 @@ export function Editor({ roomId, currentUserType }: { roomId: string, currentUse
                 placeholder={<Placeholder />}
                 ErrorBoundary={LexicalErrorBoundary}
               />
-              {currentUserType === 'editor' && }
+              {currentUserType === 'editor' && <FloatingToolbar />}
               <HistoryPlugin />
               <AutoFocusPlugin />
             </div>
           )}
+
+          <LiveblocksPlugin>
+
+          </LiveblocksPlugin>
         </div>
-
-
       </div>
     </LexicalComposer>
   );
