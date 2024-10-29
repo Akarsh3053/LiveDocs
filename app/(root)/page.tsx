@@ -13,7 +13,7 @@ import { redirect } from 'next/navigation';
 
 const Home = async () => {
   const clerkUser = await currentUser();
-  if(!clerkUser) redirect('/sign-in');
+  if (!clerkUser) redirect('/sign-in');
 
   const roomDocuments = await getDocuments(clerkUser.emailAddresses[0].emailAddress);
 
@@ -32,7 +32,7 @@ const Home = async () => {
         <div className="document-list-container">
           <div className="document-list-title">
             <h3 className="text-28-semibold">All documents</h3>
-            <AddDocumentBtn 
+            <AddDocumentBtn
               userId={clerkUser.id}
               email={clerkUser.emailAddresses[0].emailAddress}
             />
@@ -42,7 +42,7 @@ const Home = async () => {
               <li key={id} className="document-list-item">
                 <Link href={`/documents/${id}`} className="flex flex-1 items-center gap-4">
                   <div className="hidden rounded-md bg-dark-500 p-2 sm:block">
-                    <Image 
+                    <Image
                       src="/assets/icons/doc.svg"
                       alt="file"
                       width={40}
@@ -59,9 +59,9 @@ const Home = async () => {
             ))}
           </ul>
         </div>
-      ): (
+      ) : (
         <div className="document-list-empty">
-          <Image 
+          <Image
             src="/assets/icons/doc.svg"
             alt="Document"
             width={40}
@@ -69,7 +69,7 @@ const Home = async () => {
             className="mx-auto"
           />
 
-          <AddDocumentBtn 
+          <AddDocumentBtn
             userId={clerkUser.id}
             email={clerkUser.emailAddresses[0].emailAddress}
           />
