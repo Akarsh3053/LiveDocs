@@ -21,11 +21,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <ClerkProvider
       appearance={{
+        //@ts-ignore
+        layout: { unsafe_disableDevelopmentModeWarnings: true },
         baseTheme: dark,
-        variables: { 
-          colorPrimary: "#3371FF" ,
+        variables: {
+          colorPrimary: "#3371FF",
           fontSize: '16px'
-        },
+        }
       }}
     >
       <html lang="en" suppressHydrationWarning>
